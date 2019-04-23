@@ -7,12 +7,9 @@ General Template for Algo's
 This Template:
     Generates the dataframe.
     Peforms some feature engineering
-    Uses these new features and tries to make a prediction
+    Uses these new features and tries to make predictions
     It then creates all the long and short positions
-    Peforms a Mark to Market to calculate rolling PnL
-
-The template still needs to add transaction costs and should account for
-bid ask spreads.
+    Peforms a Mark to Market (MtM) to calculate rolling PnL
 
 @author: cogzelld
 """
@@ -190,7 +187,7 @@ if __name__ == "__main__":
     pairs = featureEngineering(pairs,symbols)
     
     #Transaction costs
-    #Through Flex Trade there is only Bid Ask fees
+    #Through Flex Trade there is no transaction costs. One only needs to cross the spread
     tc = 20/(pairs['USDZAR'].mean()*10000)
     
     #USE ML TO PREDICT OUTCOME (loop mins?)
